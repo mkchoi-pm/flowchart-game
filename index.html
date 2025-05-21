@@ -48,18 +48,22 @@
     <div id="game-screen" style="display: none; height: 100vh">
       <!-- 1) 선택 도형 영역 -->
       <div id="shapes-pool-container">
-        <h3
+        <h3 style="text-align: left; font-size: 2.2em; line-height: 1.6">
+          아래 도형을 드래그하여<br />우측 ⓵~⓹를 모두 채워주세요.
+        </h3>
+        <h4
           style="
             text-align: left;
-            font-size: 1.6em;
-            padding: 0 20px;
-            line-height: 1.6;
+            color: #555;
+            padding-top: 20px;
+            font-size: 1.2em;
+            font-weight: 500;
+            line-height: 1.4;
           "
         >
-          아래 도형을 하나씩 드래그하여<br />우측 빈칸 ⓵~⓹번을 모두 채워주세요!
-        </h3>
-        <h4 style="text-align: left; padding: 10px 20px; color: #999">
-          *오른쪽 플로우차트를 보고 흐름을 먼저 파악해보세요!
+          - 도형을 한번 놓으면 다시 이동할 수 없어요.
+          <br />
+          - 처음부터 다시 하려면 '다시하기' 버튼을 눌러주세요.
         </h4>
         <div id="shapes-pool"></div>
       </div>
@@ -115,7 +119,7 @@
               width: 300px;
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: left;
               gap: 16px;
               background: #fff;
             "
@@ -156,23 +160,21 @@
       <div class="modal-content">
         <p id="modal-message"></p>
         <div id="modal-result-list">
-          <div>누구나 리포터 챗봇은 이렇게 동작합니다!</div>
+          <div>누구나 리포터 챗봇은 이렇게 동작합니다.</div>
           <ul>
-            <li style="color: #999">
-              질문이 데이터 분석과 관련있는지 판단해요!
-            </li>
+            <li style="color: #777">후원 분석과 관련이 있는지 판단해요!</li>
             <li>↓</li>
-            <li>🔍 질문에 빠진 값이 없는지 검토해요!</li>
+            <li>🔍 SQL 쿼리로 바꿀 수 있는 질문인지 살펴봐요!</li>
             <li>↓</li>
-            <li>✏️ SQL에 적합한 문장으로 다시 다듬어요!</li>
+            <li>📂 데이터를 꺼내올 테이블을 결정해요!</li>
             <li>↓</li>
-            <li>📂 어떤 테이블에서 데이터를 꺼낼지 결정해요!</li>
+            <li>🔄 테이블에서 컬럼을 찾아 SQL 쿼리로 바꿔요!</li>
             <li>↓</li>
-            <li>🔄 자연어를 SQL 쿼리로 바꿔요!"</li>
+            <li>🖨️ 데이터를 읽고 알맞은 답변을 작성해요!</li>
             <li>↓</li>
-            <li style="color: #999">BigQeury에서 결과를 가져와요!</li>
+            <li style="color: #777">쿼리를 실행해서 데이터를 가져와요!</li>
             <li>↓</li>
-            <li>📊 결과를 읽고 알맞은 답변을 작성해요!</li>
+            <li>📊 결과를 쉽게 이해할 수 있도록 차트를 만들어요!</li>
           </ul>
         </div>
 

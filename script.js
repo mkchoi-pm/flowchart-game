@@ -250,9 +250,14 @@ function shuffle(array) {
   return array;
 }
 
-document.getElementById("name-input").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    document.getElementById("start-btn").click();
+const nameInput = document.getElementById("name-input");
+const startBtn = document.getElementById("start-btn");
+
+nameInput.addEventListener("keydown", (e) => {
+  // 한글 조합 중(isComposing)이면 무시하고,
+  // 실제 Enter 입력일 때만 startBtn.click() 실행
+  if (e.key === "Enter" && !e.isComposing) {
+    startBtn.click();
   }
 });
 
