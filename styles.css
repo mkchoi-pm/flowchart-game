@@ -2,7 +2,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  background: #FF9F44;
   color: #333;
 }
 
@@ -17,31 +17,45 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+header {
+  font-size: 1.4em;
+  color: #333;
+  font-weight:bold;
+  margin-top: 10px;
+}
+#title-box {
+  border: solid 2px #333;
+  width: 84%;
+  background: #fff;
+  padding: 50px 0;
+}
 .title {
-  font-size: 2.2em;
-  margin-bottom: 10px;
-  padding: 24px;
-  background: #ffe0b2;
+  font-size: 3.8em;
+  width: 100%;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 30px;
   border-radius: 8px;
-  border: solid 2px #ff9800;
+  border-radius: 80px;
 }
 .subtitle {
   margin-bottom: 20px;
-  font-size: 1.1em;
-  color: #666;
+  font-size: 1.8em;
+  color: #333;
 }
 #name-input {
-  padding: 10px;
-  font-size: 1em;
+  padding: 20px;
+  font-size: 1.2em;
   width: 220px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 #start-btn {
   margin-top: 15px;
-  padding: 10px 24px;
-  font-size: 1em;
-  background: #00796b;
+  padding: 20px 24px;
+  font-size: 1.4em;
+  background: #333;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -53,11 +67,12 @@ body {
 #results-list {
   margin: 40px auto 20px;
   text-align: left;
-  max-width: 460px;
+  max-width: 1000px;
 }
 
 #result-analytics {
- padding: 8px 0; 
+  font-size: 1.4em;
+  padding: 20px 0; 
 }
 
 #results-list h3 {
@@ -65,22 +80,36 @@ body {
 }
 #results-list ul {
   list-style: none;
-  max-height: 300px;
+  max-height: 260px;
   overflow-y: auto;
-  padding: 16px;
-  background: #fff;
+  padding: 20px;
+  background: rgba(255,255,255,0.3);
+  border: solid 2px #a85304;
 }
+#results-list ul::-webkit-scrollbar {
+    width: 10px;
+    background-color: none;
+  }
+
+#results-list ul::-webkit-scrollbar-thumb {
+    background-color: #a85304;
+    border-radius: 10px;
+    margin-right: 2px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+  #results-list ul::-webkit-scrollbar-track {
+    padding: 10px 4px;
+  }
+
 #results-list li {
   margin-bottom: 6px;
   font-size: 0.95em;
   overflow-x: hidden;
   word-wrap: break-word;
+  
 }
-footer {
-  margin-top: 40px;
-  font-size: 0.8em;
-  color: #aaa;
-}
+
 
 /* ===== 게임 화면: 플로우차트 & 도형 풀 ===== */
 #flowchart {
@@ -91,7 +120,7 @@ footer {
   justify-content: center;
   gap: 16px;
   padding: 16px;
-  background: #fff;
+  background: #eeeef6;
 
 }
 .node {
@@ -189,7 +218,7 @@ footer {
   }
   #flowchart-container {
     width: 100%;
-    background: #fff;
+    background: #999;
     display: flex;
     align-items: center;
     border-bottom: solid 1px #efefef;
@@ -293,11 +322,12 @@ footer {
 #records-table, 
 #records-table th, 
 #records-table td {
-  border: 1px solid #666;
+  border: none;
   border-collapse: collapse;
 }
 #records-table th, 
 #records-table td {
-  padding: 4px 8px;
+  padding: 15px 10px;
   text-align: center;
+  border-bottom: solid 1px #555
 }

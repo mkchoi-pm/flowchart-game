@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>플로우차트 연결 게임</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>플로우차트 연결 게임</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <!-- ===== 첫 화면 ===== -->
-  
+    <!-- ===== 첫 화면 ===== -->
+
     <div id="start-screen">
         <div style="display: flex; flex-direction: column; gap: 20px;">
-            <footer>누구나리포터 LAB</footer>
-            <div style="font-size: 1.4rem;">비영리 단체를 위한 데이터 분석 CHAT-BOT</div>
+            <header>누구나리포터 LAB</header>
         </div>
-        <h1 class="title">제가 어떻게 사용자 질문을 이해하고 답변할까요??</h1>
-        <p class="subtitle">
-            플로우차트 완성하기 게임에 도전하세요!
-        </p>
+        <div id="title-box">
+            <h1 class="title">💬 제가 어떻게 사용자 질문을 이해하고 답변할까요?</h1>
+            <p class="subtitle">
+                후원 데이터 분석 챗봇 플로우를 완성해 보세요!
+            </p>
+        </div>
 
         <div style="display: flex; flex-direction: column; gap: 4px">
             <div style="width: 300px">
-        <input type="text" id="name-input" placeholder="이름을 입력해주세요" style="display: block; width: 100%;" />
-        <button id="start-btn" style="display: block; width: 100%;">시작하기</button>
-    </div>
-    </div>
+                <input type="text" id="name-input" placeholder="이름을 입력해주세요." style="display: block; width: 100%;" />
+                <button id="start-btn" style="display: block; width: 100%;">START</button>
+            </div>
+        </div>
 
         <div id="results-list">
-        <h3 style="text-align: center">참여자 기록</h3>
-        <div style="text-align: center; display:none" id="result-analytics"></div>
-        <ul id="records"></ul>
+            <div style="text-align: center; display:none" id="result-analytics"></div>
+            <ul id="records"></ul>
         </div>
 
     </div>
-    
 
-  <!-- ===== 게임 화면 ===== -->
+
+    <!-- ===== 게임 화면 ===== -->
     <!-- ===== 게임 화면 ===== -->
     <div id="game-screen" style="display:none; height:100vh; ">
 
         <!-- 1) 선택 도형 영역 -->
         <div id="shapes-pool-container">
-            <h3 style="text-align: center; ">아래 도형(플로우차트 노드)들을 드래그하여<br/>순서에 맞게 플로우를 완성해주세요!</h4>
-            <div id="shapes-pool"></div>
+            <h3 style="text-align: center; ">아래 도형(플로우차트 노드)들을 드래그하여<br />순서에 맞게 플로우를 완성해주세요!</h4>
+                <div id="shapes-pool"></div>
         </div>
         <!-- <hr/> -->
 
         <div id="right-container">
-        <!-- 2) 플로우차트 영역 -->
-            <div style="display: grid; grid-template-columns: 1fr">
+            <!-- 2) 플로우차트 영역 -->
+            <div style="display: grid; grid-template-columns: 1fr; background: #999;">
                 <div id="flowchart-container" style="flex:1; overflow:auto;">
                     <div id="flowchart">
-                    
+
                         <div class="node start">START</div>
                         <div class="arrow">→</div>
                         <div class="node domain">제가 답변할 수 있는 질문인지 판단해요!</div>
                         <div class="arrow">→</div>
-                        
+
                         <!-- 빈칸: 모두 사각형 모양, data-index로 위치 지정 -->
                         <div class="blank-box" data-index="1">
                             <div id="default-text">도형을 채워주세요!!</div>
@@ -82,34 +84,40 @@
                         <div class="arrow">→</div>
                         <!-- <div class="blank-box" data-index="6"></div>
                         <div class="arrow">→</div> -->
-                        
+
                         <div class="node end">END</div>
                     </div>
                 </div>
-                
+
             </div>
 
             <!-- 3) 제출 버튼 -->
-                <div id="submit-container">
-                    <div style="width: 300px; display: flex; align-items: center; justify-content: center; gap: 16px; background: #fff; ">
-                        <h4>플로우차트 완성률</h4>
-                        <div id="default-progress" style="border: solid 1px #00796b; background: #d3eeeb; border-radius: 8px; padding: 8px">0 / 5</div>
-                        <div id="progress" style="display: none; border: solid 1px #00796b; background: #d3eeeb; border-radius: 8px; padding: 8px"></div>
+            <div id="submit-container">
+                <div
+                    style="width: 300px; display: flex; align-items: center; justify-content: center; gap: 16px; background: #fff; ">
+                    <h4>플로우차트 완성률</h4>
+                    <div id="default-progress"
+                        style="border: solid 1px #00796b; background: #d3eeeb; border-radius: 8px; padding: 8px">0 / 5
                     </div>
-                    <button id="submit-btn">제출하기</button>
+                    <div id="progress"
+                        style="display: none; border: solid 1px #00796b; background: #d3eeeb; border-radius: 8px; padding: 8px">
+                    </div>
                 </div>
+                <button id="submit-btn">제출하기</button>
             </div>
+        </div>
     </div>
 
-  <!-- ===== 결과 모달 ===== -->
-  <div id="result-modal" class="modal" style="display:none;">
-    <div class="modal-content">
-      <h2>결과</h2>
-      <p id="modal-message"></p>
-      <button id="modal-close">처음으로 돌아가기</button>
+    <!-- ===== 결과 모달 ===== -->
+    <div id="result-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2>결과</h2>
+            <p id="modal-message"></p>
+            <button id="modal-close">처음으로 돌아가기</button>
+        </div>
     </div>
-  </div>
 
-  <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
+
 </html>

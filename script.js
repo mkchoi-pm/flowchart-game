@@ -36,10 +36,10 @@ if (records.length === 0) {
     // 결과
     const tdResult = tr.insertCell();
     if (r.result === '정답') {
-      tdResult.textContent = '정답입니다🥳';
-      tdResult.style.color = 'blue';
+      tdResult.textContent = '정답입니다 🥳';
+      tdResult.style.color = 'black';
     } else {
-      tdResult.textContent = '오답이에요🥲';
+      tdResult.textContent = '오답이에요 🥲';
       tdResult.style.color = 'gray';
     }
   });
@@ -50,9 +50,13 @@ if (records.length === 0) {
       const successCount = records.filter(r => r.result === '정답').length;
 
     // 3) result-analytics에 텍스트 삽입
-    document.getElementById('result-analytics').style.display="block"
-    document.getElementById('result-analytics').innerHTML =
-    `<span>참여자 ${totalCount}명 중 ${successCount}명 이 성공했어요!</span>`;
+    const analytics = document.getElementById('result-analytics');
+    analytics.style.display = "block";
+    analytics.innerHTML =
+      `<span>
+         참여자 <strong>${totalCount}</strong>명 중 
+         <strong>${successCount}</strong>명이 성공했어요!
+       </span>`;
 }
 //   const records = JSON.parse(localStorage.getItem('game_results') || '[]');
 //   const ul = document.getElementById('records');
