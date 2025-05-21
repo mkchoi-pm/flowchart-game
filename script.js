@@ -1,4 +1,5 @@
 let playerName = "";
+//initGame();
 
 // 페이지 로드 시: 참여자 기록 불러오기 & 시작 버튼 설정
 document.addEventListener("DOMContentLoaded", () => {
@@ -101,31 +102,35 @@ document.addEventListener("DOMContentLoaded", () => {
     initGame();
   });
 });
-initGame();
 // 게임 초기화 함수
+
 function initGame() {
   // 1) 도형 데이터 정의
   const shapesData = [
-    { idx: "1", type: "square", label: "🔍 데이터 분석 목적을 파악해요!" },
+    {
+      idx: "1",
+      type: "square",
+      label: "🔍 질문에 빠진 값이 없는지 검토해요!",
+    },
     // {idx: '2', type: 'square', label: '질문에 필수 항목이 모두 있는가?'},
     // {idx: '3', type: 'square', label: '오타/누락값 판단'},
     {
       idx: "2",
       type: "square",
-      label: "✏️ SQL을 잘 만들도록 질문을 다듬어요!",
+      label: "✏️ SQL에 적합한 문장으로 다시 다듬어요!",
     },
     {
       idx: "3",
       type: "square",
-      label: "📂 데이터를 가져올 테이블을 매핑해요!",
+      label: "📂 어떤 테이블에서 데이터를 꺼낼지 결정해요!",
     },
-    { idx: "4", type: "square", label: "🔄 자연어를 SQL로 변환해요!" },
+    { idx: "4", type: "square", label: "🔄 자연어를 SQL 쿼리로 바꿔요!" },
     // {idx: '7', type: 'square', label: '데이터 추출 성공했는가?'},
     // {idx: '8', type: 'square', label: '재질문 요청하기'},
     {
       idx: "5",
       type: "square",
-      label: "가져온 데이터를 해석하여 답변을 만들어요!",
+      label: "📊 결과를 읽고 알맞은 답변을 작성해요!",
     },
   ];
 
@@ -208,7 +213,8 @@ function initGame() {
     // 결과 모달 띄우기 (기존 로직 재사용)
     const modal = document.getElementById("result-modal");
     const msg = document.getElementById("modal-message");
-    msg.textContent = allCorrect ? "O 정답이에요!" : "X 공부하세요!";
+    msg.textContent = allCorrect ? "정답 🥳" : "오답 🥲";
+
     modal.style.display = "flex";
 
     // 로컬 저장
@@ -263,3 +269,7 @@ function formatDateYYMMDD_HHMMSS(date) {
     pad(date.getSeconds())
   );
 }
+
+document.getElementById("reset-btn").addEventListener("click", () => {
+  window.location.reload();
+});
