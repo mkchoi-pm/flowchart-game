@@ -110,27 +110,31 @@ function initGame() {
     {
       idx: "1",
       type: "square",
-      label: "🔍 질문에 빠진 값이 없는지 검토해요!",
+      label: "🔍 SQL 쿼리로 바꿀 수 있는 질문인지 살펴봐요!",
     },
     // {idx: '2', type: 'square', label: '질문에 필수 항목이 모두 있는가?'},
     // {idx: '3', type: 'square', label: '오타/누락값 판단'},
     {
       idx: "2",
       type: "square",
-      label: "✏️ SQL에 적합한 문장으로 다시 다듬어요!",
+      label: "📂 데이터를 꺼내올 테이블을 결정해요!",
     },
     {
       idx: "3",
       type: "square",
-      label: "📂 어떤 테이블에서 데이터를 꺼낼지 결정해요!",
+      label: "🔄 테이블에서 컬럼을 찾아 SQL 쿼리로 바꿔요!",
     },
-    { idx: "4", type: "square", label: "🔄 자연어를 SQL 쿼리로 바꿔요!" },
+    {
+      idx: "4",
+      type: "square",
+      label: "🖨️ 데이터를 읽고 알맞은 답변을 작성해요!",
+    },
     // {idx: '7', type: 'square', label: '데이터 추출 성공했는가?'},
     // {idx: '8', type: 'square', label: '재질문 요청하기'},
     {
       idx: "5",
       type: "square",
-      label: "📊 결과를 읽고 알맞은 답변을 작성해요!",
+      label: "📊 결과를 쉽게 이해할 수 있도록 차트를 만들어요!",
     },
   ];
 

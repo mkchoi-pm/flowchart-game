@@ -48,7 +48,14 @@
     <div id="game-screen" style="display: none; height: 100vh">
       <!-- 1) 선택 도형 영역 -->
       <div id="shapes-pool-container">
-        <h3 style="text-align: left; font-size: 1.6em; padding: 0 20px">
+        <h3
+          style="
+            text-align: left;
+            font-size: 1.6em;
+            padding: 0 20px;
+            line-height: 1.6;
+          "
+        >
           아래 도형을 하나씩 드래그하여<br />우측 빈칸 ⓵~⓹번을 모두 채워주세요!
         </h3>
         <h4 style="text-align: left; padding: 10px 20px; color: #999">
@@ -65,11 +72,9 @@
         >
           <div id="flowchart-container" style="flex: 1; overflow: auto">
             <div id="flowchart">
-              <div class="node start">📩 사용자에게 질문을 받았어요!</div>
+              <div class="node start">📩 사용자 질문 입력</div>
               <div class="arrow">→</div>
-              <div class="node domain">
-                질문이 데이터 분석과 관련있는지 판단해요!
-              </div>
+              <div class="node domain">후원 분석과 관련이 있는지 판단해요!</div>
               <div class="arrow">→</div>
 
               <!-- 빈칸: 모두 사각형 모양, data-index로 위치 지정 -->
@@ -85,11 +90,11 @@
                 <div id="default-text">⓷</div>
               </div>
               <div class="arrow">→</div>
+              <div class="node domain">쿼리를 실행해서 데이터를 가져와요!</div>
+              <div class="arrow">→</div>
               <div class="blank-box" data-index="4">
                 <div id="default-text">⓸</div>
               </div>
-              <div class="arrow">→</div>
-              <div class="node domain">BigQeury에서 결과를 가져와요!</div>
               <div class="arrow">→</div>
               <div class="blank-box" data-index="5">
                 <div id="default-text">⓹</div>
@@ -98,7 +103,7 @@
               <!-- <div class="blank-box" data-index="6"></div>
                         <div class="arrow">→</div> -->
 
-              <div class="node end">📨 답변 전송 완료!</div>
+              <div class="node end">📨 답변 전송 완료</div>
             </div>
           </div>
         </div>

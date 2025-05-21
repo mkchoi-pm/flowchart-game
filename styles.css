@@ -132,7 +132,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 16px;
+  padding: 50px;
   background: #eeeef6;
   overflow-y: scroll;
   height: calc(100vh - 80px);
@@ -158,41 +158,59 @@ header {
 .start {
   background: #333;
   color: #fff;
-  width: 360px;
-  padding: 16px;
+  width: 300px;
+  height: 60px;
   box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
 }
 
 .end {
   background: #333;
-  width: 360px;
+  width: 300px;
+  height: 60px;
   color: #fff;
-  padding: 16px;
   box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
 }
 
 .domain {
   color: #333;
   width: 440px;
-  padding: 16px;
+  height: 60px;
   background: #ff9f44;
 }
 
-.blank {
+/* --- 빈칸 박스 --- */
+.blank-box {
+  box-sizing: border-box;
+  width: 440px;
+  height: 60px;
   background: #fff;
-  border: dashed 2px #999;
+  border: 1px dashed #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
 }
 
-.blank .inner-text {
-  font-weight: bold;
-  color: #999;
+.blank-box.filled {
+  border: none;
+  width: 440px;
+  height: 60px;
+  box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 화살표 --- */
+.arrow {
+  font-size: 1em;
+  color: #666;
+  user-select: none;
+  transform: rotate(90deg);
 }
 
 #shapes-pool {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  gap: 24px;
   padding: 20px;
   background: #fff;
 }
@@ -220,6 +238,7 @@ header {
   justify-content: space-between;
   gap: 36px;
 }
+
 /* 초기화 버튼 */
 #reset-btn {
   width: 150px;
@@ -256,7 +275,7 @@ header {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 550px 1fr;
 }
 
 #shapes-pool-container {
@@ -290,33 +309,6 @@ hr {
   margin: 0;
 }
 
-/* --- 빈칸 박스 --- */
-.blank-box {
-  box-sizing: border-box;
-  width: 440px;
-  height: 60px;
-  background: #fff;
-  border: 1px dashed #999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
-}
-
-.blank-box.filled {
-  border: none;
-  width: 440px;
-  box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* --- 화살표 --- */
-.arrow {
-  font-size: 1.2em;
-  color: #666;
-  user-select: none;
-  transform: rotate(90deg);
-}
-
 /* --- selectable shapes --- */
 .shape {
   cursor: grab;
@@ -334,17 +326,6 @@ hr {
   background: #ffedde;
   border: solid 3px #ff9f44;
   border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.shape.diamond {
-  width: 100%;
-  height: 60px;
-  background: #ff9800;
-  border: solid 2px #ff9f44;
-  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
