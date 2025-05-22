@@ -39,7 +39,7 @@ header {
 }
 
 .title {
-  font-size: 3.8em;
+  font-size: 2.6em;
   width: 100%;
   color: #333;
   margin-bottom: 20px;
@@ -135,7 +135,7 @@ header {
   padding: 40px;
   background: #eeeef6;
   overflow-y: scroll;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 100px);
 }
 
 .node {
@@ -237,6 +237,14 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 36px;
+  height: 80px;
+}
+
+#submit-container #btn-wrapper {
+  padding: 0;
+  background: none;
+  display: flex;
+  gap: 16px;
 }
 
 /* 초기화 버튼 */
@@ -289,6 +297,7 @@ header {
 }
 
 #right-container {
+  width: 100%;
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr 80px;
@@ -408,4 +417,134 @@ hr {
 #modal-result-list ul li {
   list-style-type: none;
   padding: 8px 0;
+}
+.text-br {
+  display: none;
+}
+@media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-size: 10px;
+    width: 100vw;
+    overflow: hidden;
+  }
+  #start-screen {
+    gap: 20px;
+  }
+  #start-screen #title-box {
+    padding: 20px 0;
+  }
+  #results-list {
+    margin: 0 auto;
+  }
+  #records {
+    padding: 10px;
+    max-height: 200px;
+  }
+  .title {
+    font-size: 2.4em;
+    padding: 20px;
+    margin-bottom: 0;
+  }
+  .subtitle {
+    margin-bottom: 10px;
+  }
+  #game-screen {
+    display: flex;
+    flex-direction: column !important;
+    width: 100vw !important;
+  }
+
+  #shapes-pool-container {
+    width: calc(100%);
+    height: 430px !important;
+    padding: 20px;
+    gap: 0;
+  }
+
+  #shapes-pool-container h3 {
+    font-size: 1.8em;
+    padding-top: 8px;
+  }
+  #shapes-pool-container h4 {
+    padding-top: 8px;
+  }
+
+  .domain {
+    color: #333;
+    width: calc(100%);
+    height: 50px;
+    background: #ff9f44;
+  }
+
+  #shapes-pool {
+    height: 216px;
+    gap: 4px;
+    justify-content: flex-start;
+  }
+
+  #submit-container #btn-wrapper {
+    width: calc(100%);
+    padding: 10px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #submit-container #btn-wrapper button {
+    width: 100%;
+    height: 40px;
+  }
+
+  #flowchart {
+    width: calc(100%);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 40px;
+    gap: 8px;
+  }
+
+  #flowchart-container {
+    width: calc(100%);
+    height: calc(100vh - 480px);
+    align-items: start;
+  }
+
+  .shape {
+    cursor: grab;
+    padding: 8px;
+    color: #333;
+    font-size: 1.1em;
+    text-align: center;
+    user-select: none;
+    box-sizing: border-box;
+  }
+
+  .shape.square {
+    width: calc(100vw - 40px);
+    height: 40px;
+    background: #ffedde;
+    border: solid 3px #ff9f44;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blank-box {
+    width: calc(100vw - 40px);
+  }
+  .shape.selected {
+    outline: 3px solid #00796b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-br {
+    display: block;
+  }
 }

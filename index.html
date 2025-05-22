@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -5,21 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>플로우차트 연결 게임</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- 선택된(shape.selected) 강조 스타일 -->
+    <style>
+      .shape.selected {
+        outline: 3px solid #00796b;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+    </style>
   </head>
-
   <body>
     <!-- ===== 첫 화면 ===== -->
-
     <div id="start-screen">
       <div style="display: flex; flex-direction: column; gap: 20px">
         <header>누구나리포터 LAB</header>
       </div>
       <div id="title-box">
-        <h1 class="title">💬 제가 어떻게 사용자 질문을 이해하고 답변할까요?</h1>
-
-        <p class="subtitle">후원 데이터 분석 챗봇 플로우를 완성해 보세요!</p>
+        <h1 class="title">
+          💬 제가 어떻게 <br class="text-br" />사용자 질문을 이해하고
+          <br class="text-br" />답변할까요?
+        </h1>
+        <p class="subtitle">
+          후원 데이터 분석 챗봇<br class="text-br" />플로우를 완성해 보세요!
+        </p>
       </div>
-
       <div style="display: flex; flex-direction: column; gap: 4px">
         <div style="width: 300px">
           <input
@@ -33,7 +42,6 @@
           </button>
         </div>
       </div>
-
       <div id="results-list">
         <div
           style="text-align: center; display: none"
@@ -44,12 +52,11 @@
     </div>
 
     <!-- ===== 게임 화면 ===== -->
-    <!-- ===== 게임 화면 ===== -->
     <div id="game-screen" style="display: none; height: 100vh">
       <!-- 1) 선택 도형 영역 -->
       <div id="shapes-pool-container">
-        <h3 style="text-align: left; font-size: 2.2em; line-height: 1.6">
-          아래 도형을 드래그하여<br />우측 ⓵~⓹를 모두 채워주세요.
+        <h3 style="text-align: left; font-size: 2em; line-height: 1.6">
+          아래 도형을 드래그하거나 터치하여<br />우측 ①~⑤를 모두 채워주세요.
         </h3>
         <h4
           style="
@@ -61,16 +68,14 @@
             line-height: 1.4;
           "
         >
-          - 도형을 한번 놓으면 다시 이동할 수 없어요.
-          <br />
+          - 도형을 한 번 배치하면 다시 이동할 수 없어요.<br />
           - 처음부터 다시 하려면 '다시하기' 버튼을 눌러주세요.
         </h4>
         <div id="shapes-pool"></div>
       </div>
-      <!-- <hr/> -->
 
+      <!-- 2) 플로우차트 영역 -->
       <div id="right-container">
-        <!-- 2) 플로우차트 영역 -->
         <div
           style="display: grid; grid-template-columns: 1fr; background: #999"
         >
@@ -81,47 +86,44 @@
               <div class="node domain">후원 분석과 관련이 있는지 판단해요!</div>
               <div class="arrow">→</div>
 
-              <!-- 빈칸: 모두 사각형 모양, data-index로 위치 지정 -->
+              <!-- 빈칸: data-index 로 위치 지정 -->
               <div class="blank-box" data-index="1">
-                <div id="default-text">⓵</div>
+                <div id="default-text">①</div>
               </div>
               <div class="arrow">→</div>
               <div class="blank-box" data-index="2">
-                <div id="default-text">⓶</div>
+                <div id="default-text">②</div>
               </div>
               <div class="arrow">→</div>
               <div class="blank-box" data-index="3">
-                <div id="default-text">⓷</div>
+                <div id="default-text">③</div>
               </div>
               <div class="arrow">→</div>
               <div class="node domain">쿼리를 실행해서 데이터를 가져와요!</div>
               <div class="arrow">→</div>
               <div class="blank-box" data-index="4">
-                <div id="default-text">⓸</div>
+                <div id="default-text">④</div>
               </div>
               <div class="arrow">→</div>
               <div class="blank-box" data-index="5">
-                <div id="default-text">⓹</div>
+                <div id="default-text">⑤</div>
               </div>
               <div class="arrow">→</div>
-              <!-- <div class="blank-box" data-index="6"></div>
-                        <div class="arrow">→</div> -->
-
               <div class="node end">📨 답변 전송 완료</div>
             </div>
           </div>
         </div>
 
-        <!-- 3) 제출 버튼 -->
+        <!-- 3) 제출/리셋 버튼 & 진행률 -->
         <div id="submit-container">
           <div
             style="
               width: 300px;
               display: flex;
               align-items: center;
-              justify-content: left;
               gap: 16px;
               background: #fff;
+              padding: 16px;
             "
           >
             <h4>플로우차트 완성률</h4>
@@ -147,7 +149,7 @@
               "
             ></div>
           </div>
-          <div style="display: flex; gap: 16px">
+          <div id="btn-wrapper">
             <button id="reset-btn">다시하기</button>
             <button id="submit-btn">제출하기</button>
           </div>
@@ -155,7 +157,7 @@
       </div>
     </div>
 
-    <!-- ===== 결과 모달 ===== -->
+    <!-- 4) 결과 모달 -->
     <div id="result-modal" class="modal" style="display: none">
       <div class="modal-content">
         <p id="modal-message"></p>
@@ -177,7 +179,6 @@
             <li>📊 결과를 쉽게 이해할 수 있도록 차트를 만들어요!</li>
           </ul>
         </div>
-
         <button id="modal-close">처음으로 돌아가기</button>
       </div>
     </div>
