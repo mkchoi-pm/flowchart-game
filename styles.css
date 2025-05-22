@@ -132,7 +132,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 50px;
+  padding: 40px;
   background: #eeeef6;
   overflow-y: scroll;
   height: calc(100vh - 80px);
@@ -146,7 +146,7 @@ header {
   background: #fff;
   /* border: 2px solid #333; */
   user-select: none;
-  font-size: 1.2em;
+  font-size: 1.1em;
   border-radius: 30px;
   box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.1);
 }
@@ -159,14 +159,14 @@ header {
   background: #333;
   color: #fff;
   width: 300px;
-  height: 60px;
+  height: 50px;
   box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
 }
 
 .end {
   background: #333;
   width: 300px;
-  height: 60px;
+  height: 50px;
   color: #fff;
   box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.3);
 }
@@ -200,8 +200,8 @@ header {
 
 /* --- 화살표 --- */
 .arrow {
-  font-size: 1em;
-  color: #666;
+  font-size: 0.8em;
+  color: #333;
   user-select: none;
   transform: rotate(90deg);
 }
@@ -314,7 +314,7 @@ hr {
   cursor: grab;
   padding: 8px;
   color: #333;
-  font-size: 1.2em;
+  font-size: 1.1em;
   text-align: center;
   user-select: none;
   box-sizing: border-box;
@@ -322,7 +322,7 @@ hr {
 
 .shape.square {
   width: 440px;
-  height: 60px;
+  height: 50px;
   background: #ffedde;
   border: solid 3px #ff9f44;
   border-radius: 30px;
