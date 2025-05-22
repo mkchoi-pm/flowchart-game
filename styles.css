@@ -174,7 +174,7 @@ header {
 .domain {
   color: #333;
   width: 440px;
-  height: 60px;
+  height: 50px;
   background: #ff9f44;
 }
 
@@ -182,7 +182,7 @@ header {
 .blank-box {
   box-sizing: border-box;
   width: 440px;
-  height: 60px;
+  height: 50px;
   background: #fff;
   border: 1px dashed #999;
   display: flex;
@@ -194,7 +194,7 @@ header {
 .blank-box.filled {
   border: none;
   width: 440px;
-  height: 60px;
+  height: 50px;
   box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.1);
 }
 
